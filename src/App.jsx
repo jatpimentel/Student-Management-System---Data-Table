@@ -1,11 +1,7 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import StudentTable from "./components/StudentTable";
+import React from "react";
+import StudentTable from "./components/StudentTable"; // Ensure the path is correct
 
 const students = [
-  //Students Data
   {
     last_name: "Pimentel",
     first_name: "Job Aaron",
@@ -20,10 +16,25 @@ const students = [
     birthdate: "1999/09/10",
     age: "",
   },
+  {
+    last_name: "Santos",
+    first_name: "Elaijah Nathaniel",
+    course: "IS",
+    birthdate: "2002/09/10",
+    age: "",
+  },
+  {
+    last_name: "Thursday",
+    first_name: "Benjamin",
+    course: "CS",
+    birthdate: "2003/09/10",
+    age: "",
+  },
 ];
 
+
 function App() {
-  return <StudentTable></StudentTable>;
+  return <StudentTable students={students} />;
 }
 
 export default App;

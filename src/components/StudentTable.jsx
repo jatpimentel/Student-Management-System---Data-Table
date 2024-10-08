@@ -1,31 +1,39 @@
+// StudentTable.js
 import React from "react";
-import Table from "./Table";
+import Table from "./Table"; // Ensure this points to your Table component
+import StudentData from "./students/studentdata"; // Ensure this points to your StudentData component
 
-const StudentTable = () => {
+const StudentTable = ({ students }) => {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center", // Optional: for vertical centering
+        height: "100vh", // Optional: height of the container
+      }}
+    >
       <Table.TableContainer>
         <Table.THead>
           <Table.Row>
-            <Table.ColumnHeader>Student Management System</Table.ColumnHeader>
+            <Table.ColumnHeader>Last Name</Table.ColumnHeader>
+            <Table.ColumnHeader>First Name</Table.ColumnHeader>
+            <Table.ColumnHeader>Course</Table.ColumnHeader>
+            <Table.ColumnHeader>Birthday</Table.ColumnHeader>
+            <Table.ColumnHeader>Day</Table.ColumnHeader>
           </Table.Row>
         </Table.THead>
 
         <Table.TBody>
-          <Table.Row>
-            <Table.ColumnHeader colspan="2">Last Name</Table.ColumnHeader>
-            <Table.ColumnHeader colspan="2">First Name</Table.ColumnHeader>
-            <Table.ColumnHeader colspan="2">Course</Table.ColumnHeader>
-            <Table.ColumnHeader colspan="2">Birthday</Table.ColumnHeader>
-            <Table.ColumnHeader colspan="2">Age</Table.ColumnHeader>
-          </Table.Row>
-          <Table.Row>
-            <Table.Column>Pimentel</Table.Column>
-            <Table.Column>Job Aaron</Table.Column>
-            <Table.Column>IT</Table.Column>
-            <Table.Column>2004/04/04</Table.Column>
-            <Table.Column>20</Table.Column>
-          </Table.Row>
+          {students.map((student, index) => (
+            <StudentData
+              key={`${student.last_name}-${index}`}
+              lastName={student.last_name}
+              firstName={student.first_name}
+              course={student.course}
+              birthdate={student.birthdate}
+            />
+          ))}
         </Table.TBody>
 
         <Table.TFoot></Table.TFoot>
