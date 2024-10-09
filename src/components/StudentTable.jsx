@@ -20,7 +20,7 @@ const StudentTable = ({ students }) => {
             <Table.ColumnHeader>First Name</Table.ColumnHeader>
             <Table.ColumnHeader>Course</Table.ColumnHeader>
             <Table.ColumnHeader>Birthday</Table.ColumnHeader>
-            <Table.ColumnHeader>Day</Table.ColumnHeader>
+            <Table.ColumnHeader>Age</Table.ColumnHeader>
           </Table.Row>
         </Table.THead>
 

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import StudentTable from "./components/StudentTable"; // Ensure the path is correct
+import SearchBar from "./components/students/searchbar"; // Ensure the path is correct
 
 const students = [
   {
@@ -32,9 +33,26 @@ const students = [
   },
 ];
 
-
 function App() {
-  return <StudentTable students={students} />;
+  const [filteredStudents, setFilteredStudents] = useState(students);
+
+  const handleSearch = (searchTerm) => {
+    const lowercasedTerm = searchTerm.toLowerCase();
+    const filtered = students.filter((student) =>
+      student.first_name.toLowerCase().includes(lowercasedTerm) ||
+      student.last_name.toLowerCase().includes(lowercasedTerm) ||
+      student.course.toLowerCase().includes(lowercasedTerm)
+    );
+    setFilteredStudents(filtered);
+  };
+
+  return (
+    <div style={{ textAlign: "center" }}>
+      <SearchBar onSearch={handleSearch} />
+      <StudentTable students={filteredStudents} />
+    </div>
+  );
 }
 
 export default App;
+
