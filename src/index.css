@@ -1,68 +1,128 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Pornhub-inspired color scheme */
+  --primary-color: #ff9900; /* Bold orange */
+  --secondary-color: #ffffff; /* White for text */
+  --background-color: #1a1a1a; /* Dark background */
+  --accent-color: #333333; /* Dark gray for elements */
+  --hover-color: #e68a00; /* Lighter orange for hover */
+  --border-color: #262626; /* Darker gray for borders */
+  --link-color: #ff9900; /* Link color in orange */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  background-color: var(--background-color); /* Dark background */
+  color: var(--secondary-color); /* White text */
   min-width: 320px;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--hover-color);
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3.5em;
+  color: var(--primary-color); /* Orange title */
+  margin: 0 0 1.5rem;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.25s, transform 0.25s ease-in-out;
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--hover-color);
+  transform: translateY(-2px);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto var(--primary-color);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+input[type="text"],
+input[type="date"] {
+  padding: 0.6em;
+  margin: 0.5em 0;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: var(--accent-color);
+  color: var(--secondary-color);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+input[type="text"]:focus,
+input[type="date"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(255, 153, 0, 0.6);
+  outline: none;
+}
+
+.card {
+  padding: 2em;
+  background-color: var(--accent-color); /* Dark gray */
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  margin: 2rem 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(255, 153, 0, 0.3); /* Subtle orange shadow */
+}
+
+.container {
+  padding: 2rem;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
   }
-  a:hover {
-    color: #747bff;
+
+  h1 {
+    font-size: 2.5em;
   }
+
   button {
-    background-color: #f9f9f9;
+    padding: 0.6em 1em;
+    font-size: 1em;
   }
 }

@@ -32,6 +32,7 @@ const StudentTable = ({ students }) => {
               firstName={student.first_name}
               course={student.course}
               birthdate={student.birthdate}
+              age={student.age}
             />
           ))}
         </Table.TBody>

@@ -1,19 +1,32 @@
+/* Root styling */
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
+#root:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo styling */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
-  transition: filter 300ms;
+  transition: filter 300ms, transform 300ms ease-in-out;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
+  transform: scale(1.05);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -33,10 +46,81 @@
   }
 }
 
+/* Card styling */
 .card {
   padding: 2em;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Button styling */
+button {
+  padding: 1em 2em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+button:active {
+  background-color: #003f7f;
+  transform: translateY(0);
+}
+
+/* Link styling */
 .read-the-docs {
-  color: #888;
+  color: #646cff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.read-the-docs:hover {
+  color: #0040a0;
+  transform: scale(1.05);
+}
+
+/* Typography */
+h1, h2, h3 {
+  color: #333;
+  margin-bottom: 1.5em;
+}
+
+p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.1em;
+  margin-bottom: 1.5em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #root {
+    padding: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  button {
+    padding: 1em 1.5em;
+    font-size: 1.1em;
+  }
 }
