@@ -1,29 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import StudentTable from "./components/StudentTable"; // Ensure the path is correct
 import SearchBar from "./components/students/searchbar"; // Ensure the path is correct
-import DateFilter from "./components/date_filter"; // Import your DateFilter component
 
-// Function to calculate age based on birthdate
-// Function to calculate age based on birthdate
-const calculateAge = (birthdate) => {
-  const birthDate = new Date(birthdate);
-  const today = new Date();
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const monthDifference = today.getMonth() - birthDate.getMonth();
-
-  if (
-    monthDifference < 0 ||
-    (monthDifference === 0 && today.getDate() < birthDate.getDate())
-  ) {
-    age--;
-  }
-
-  return age;
-};
-
-
-// Initialize the students data with calculated ages
-const studentsData = [
+const students = [
   {
     last_name: "Pimentel",
     first_name: "Job Aaron",
@@ -55,30 +34,15 @@ const studentsData = [
 ];
 
 function App() {
-  const [students, setStudents] = useState(studentsData);
-  const [filteredStudents, setFilteredStudents] = useState(studentsData);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [minDate, setMinDate] = useState("");
-  const [maxDate, setMaxDate] = useState("");
+  const [filteredStudents, setFilteredStudents] = useState(students);
 
-  // Filter students based on search term and date range
-  const filterStudents = () => {
+  const handleSearch = (searchTerm) => {
     const lowercasedTerm = searchTerm.toLowerCase();
-    const filtered = students.filter((student) => {
-      const birthdate = new Date(student.birthdate);
-      const isWithinDateRange =
-        (!minDate || birthdate >= new Date(minDate)) &&
-        (!maxDate || birthdate <= new Date(maxDate));
-
-      return (
-        (student.first_name.toLowerCase().includes(lowercasedTerm) ||
-          student.last_name.toLowerCase().includes(lowercasedTerm) ||
-          student.course.toLowerCase().includes(lowercasedTerm) ||
-          student.age.toString().includes(lowercasedTerm)) &&
-        isWithinDateRange
-      );
-    });
-
+    const filtered = students.filter((student) =>
+      student.first_name.toLowerCase().includes(lowercasedTerm) ||
+      student.last_name.toLowerCase().includes(lowercasedTerm) ||
+      student.course.toLowerCase().includes(lowercasedTerm)
+    );
     setFilteredStudents(filtered);
   };
 
