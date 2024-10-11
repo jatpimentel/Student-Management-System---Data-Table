@@ -83,8 +83,7 @@ function App() {
         const max = maxDate ? new Date(maxDate) : null;
 
         return (
-          (!min || studentBirthDate >= min) &&
-          (!max || studentBirthDate <= max)
+          (!min || studentBirthDate > min) && (!max || studentBirthDate < max)
         );
       });
     }
