@@ -1,11 +1,11 @@
 :root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   font-weight: 400;
 
   /* Pornhub-inspired color scheme */
   --primary-color: #ff9900; /* Bold orange */
-  --secondary-color: #ffffff; /* White for text */
+  --secondary-color: #ff9900; /* White for text */
   --background-color: #1a1a1a; /* Dark background */
   --accent-color: #333333; /* Dark gray for elements */
   --hover-color: #e68a00; /* Lighter orange for hover */
